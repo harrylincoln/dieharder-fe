@@ -4,7 +4,7 @@ import TouchScreenButton from "../components/TouchScreenButton";
 const PlazaDirectoryLetter = () => (
   <>
     <h1>Nakatomi Plaza Directory</h1>
-    <h2>Touch key with first letter of person's last name</h2>
+    <h3>TOUCH KEY WITH FIRST LETTER OF PERSON'S LAST NAME</h3>
     {[
       "A",
       "B",

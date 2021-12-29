@@ -2,7 +2,7 @@ import React from "react";
 
 const Quiz = () => (
   <>
-    <div>Quiz time</div>
+    <h1>Quiz time</h1>
   </>
 );
 

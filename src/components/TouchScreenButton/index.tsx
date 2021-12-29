@@ -13,10 +13,14 @@ const StyledButton = styled.button<{ visited: boolean; namesStyle?: boolean }>`
   border-top-color: white;
   border-left-color: ${(props) => (props.visited ? "white" : "#506c83")};
   border-bottom-color: ${(props) => (props.visited ? "white" : "#506c83")};
-  margin: 0 0.25rem;
+  margin: 0 0.25rem 0.25rem 0.25rem;
   cursor: pointer;
   transition: background-color 50ms linear;
   width: ${(props) => (props.namesStyle ? "100%" : "auto")};
+  @media (min-width: 768px) {
+    display: inline-block;
+    width: ${(props) => (props.namesStyle ? "47%" : "auto")};
+  }
 `;
 
 const TouchScreenButton = ({
@@ -24,11 +28,13 @@ const TouchScreenButton = ({
   href,
   namesStyle,
   isHolly,
+  onClick,
 }: {
   text: string;
   href?: string;
   namesStyle?: boolean;
   isHolly?: boolean;
+  onClick?: () => void;
 }) => {
   const navigate = useNavigate();
   const [visited, setVisited] = useState(false);
@@ -41,9 +47,11 @@ const TouchScreenButton = ({
     event.preventDefault();
     setVisited(true);
     setTimeout(() => {
+      if (onClick) onClick();
       if (href) navigate(href);
+      setVisited(false);
       if (isHolly) navigate("/quiz");
-    }, 800);
+    }, 1000);
   };
 
   return (
