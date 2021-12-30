@@ -77,6 +77,26 @@ type Results = {
   score: string;
 };
 
+const ScoreTable = styled.table`
+  background-color: #0f0f12;
+  text-align: left;
+  font-size: 2rem;
+  padding: 1rem;
+  border-spacing: 0px;
+  border-collapse: separate;
+  border: 18px solid black;
+  margin: 0 auto;
+  border-right-color: white;
+  border-top-color: white;
+  border-left-color: #506c83;
+  border-bottom-color: #506c83;
+  font-family: monospace;
+  td {
+    padding-right: 5rem;
+    padding-left: 0.25rem;
+  }
+`;
+
 const Quiz = () => {
   const uuid = uuidv4();
 
@@ -168,7 +188,114 @@ const Quiz = () => {
       {results && (
         <>
           <h1>Results</h1>
-          <h4>{results.score}</h4>
+          <ScoreTable>
+            <tr>
+              <th></th>
+              <th></th>
+              <th>SCORE</th>
+            </tr>
+
+            <tr>
+              <td>ABASCAL</td>
+              <td>F</td>
+              <td>28</td>
+            </tr>
+            <tr>
+              <td>ALLEN</td>
+              <td>W</td>
+              <td>34</td>
+            </tr>
+            <tr>
+              <td>ATKEN</td>
+              <td>T</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td colSpan={3}>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>BLAZE</td>
+              <td>W</td>
+              <td>27</td>
+            </tr>
+            <tr>
+              <td>BRICK</td>
+              <td>J</td>
+              <td>27</td>
+            </tr>
+            <tr>
+              <td>BRUNER</td>
+              <td>W</td>
+              <td>34</td>
+            </tr>
+            <tr>
+              <td>BORIS</td>
+              <td>R</td>
+              <td>31</td>
+            </tr>
+            <tr>
+              <td colSpan={3}>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>CAMPBELL</td>
+              <td>S</td>
+              <td>14</td>
+            </tr>
+            <tr>
+              <td>CLAY</td>
+              <td>WM</td>
+              <td>29</td>
+            </tr>
+            <tr>
+              <td>CRAWFORD</td>
+              <td>L</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <td colSpan={3}>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>DEGOVIA</td>
+              <td>O</td>
+              <td>29</td>
+            </tr>
+            <tr>
+              <td>DESOUZA</td>
+              <td>C</td>
+              <td>31</td>
+            </tr>
+            <tr>
+              <td>DEBONT</td>
+              <td>J</td>
+              <td>31</td>
+            </tr>
+            <tr>
+              <td>DISARRO</td>
+              <td>A</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <td>DURRULL</td>
+              <td>B</td>
+              <td>31</td>
+            </tr>
+            <tr>
+              <td colSpan={3}>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>ELLING</td>
+              <td>J</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <td colSpan={3}>&nbsp;</td>
+            </tr>
+            <tr style={{ color: "orange" }}>
+              <td>PLAYER</td>
+              <td>ONE</td>
+              <td>{results.score}</td>
+            </tr>
+          </ScoreTable>
         </>
       )}
 
