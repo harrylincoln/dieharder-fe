@@ -27,27 +27,37 @@ const PlazaDirectoryLetter = () => {
   };
 
   return (
-    <>
-      <h1>Nakatomi Plaza Directory</h1>
-      <h2>TOUCH PERSON'S NAME FOR LOCATOR MAP</h2>
-      {navigatableSet.names &&
-        navigatableSet.names.map((name: string) => (
-          <TouchScreenButton
-            text={name}
-            namesStyle
-            isHolly={name === "GENNARO, HOLLY"}
-          />
-        ))}
-      <div>
-        {navigatableSet.hasSecondset && (
-          <TouchScreenButton
-            text={navigatableSet.set === 0 ? "Next screen" : "Prev screen"}
-            onClick={switchSet}
-          />
-        )}
-        <TouchScreenButton text={"Exit"} href={"/directory"} />
+    <div
+      style={{
+        background:
+          "radial-gradient(ellipse at center, #29382c 0%, #0c100d 100%)",
+      }}
+    >
+      <div className="noise-wrapper">
+        <div style={{ position: "relative" }}>
+          <h1>Nakatomi Plaza Directory</h1>
+          <h2>TOUCH PERSON'S NAME FOR LOCATOR MAP</h2>
+          {navigatableSet.names &&
+            navigatableSet.names.map((name: string) => (
+              <TouchScreenButton
+                text={name}
+                namesStyle
+                isHolly={name === "GENNARO, HOLLY"}
+              />
+            ))}
+          <div>
+            {navigatableSet.hasSecondset && (
+              <TouchScreenButton
+                text={navigatableSet.set === 0 ? "Next screen" : "Prev screen"}
+                onClick={switchSet}
+              />
+            )}
+            <TouchScreenButton text={"Exit"} href={"/directory"} />
+          </div>
+          <div className="noise"></div>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

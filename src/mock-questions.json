@@ -1,0 +1,175 @@
+{
+    "message": "Yippee-ki-yay",
+    "client_request_id": "serdthfgbdf",
+    "set_id": "9a60922a-1a81-4f23-954d-e6df414ffe46",
+    "questions": [
+        {
+            "questionId": 3,
+            "questionType": 0,
+            "questionText": "What is the name of the company printed on the side of terrorist's equipment truck?",
+            "potentialAnswers": [
+                {
+                    "answerText": "Atlantic Courier",
+                    "answerId": 1
+                },
+                {
+                    "answerText": "Courier Atlantic",
+                    "answerId": 2
+                },
+                {
+                    "answerText": "Pacific Courier",
+                    "answerId": 3
+                }
+            ],
+            "image": "blocks"
+        },
+        {
+            "questionId": 4,
+            "questionType": 0,
+            "questionText": "Which one of these ingredients is the odd one out according to Sgt Al Powell as an ingredient for a twinky?",
+            "potentialAnswers": [
+                {
+                    "answerText": "Sugar-enriched flour",
+                    "answerId": 1
+                },
+                {
+                    "answerText": "Hydrogenated vegetable oil",
+                    "answerId": 2
+                },
+                {
+                    "answerText": "Polysorbate 50",
+                    "answerId": 3
+                },
+                {
+                    "answerText": "Yellow dye #5",
+                    "answerId": 4
+                }
+            ],
+            "image": "blocks"
+        },
+        {
+            "questionId": 7,
+            "questionType": 0,
+            "questionText": "Where was agent Johnson when Special Agent Johnson was in Saigon?",
+            "potentialAnswers": [
+                {
+                    "answerText": "Senior high",
+                    "answerId": 1
+                },
+                {
+                    "answerText": "Kindergarten",
+                    "answerId": 2
+                },
+                {
+                    "answerText": "Junior high",
+                    "answerId": 3
+                }
+            ],
+            "image": "blocks"
+        },
+        {
+            "questionId": 1,
+            "questionType": 0,
+            "questionText": "How many estimated square blocks do the city engineers say could be affected by turning off the power?",
+            "potentialAnswers": [
+                {
+                    "answerText": "9",
+                    "answerId": 1
+                },
+                {
+                    "answerText": "10",
+                    "answerId": 2
+                },
+                {
+                    "answerText": "11",
+                    "answerId": 3
+                }
+            ],
+            "image": "blocks"
+        },
+        {
+            "questionId": 9,
+            "questionType": 0,
+            "questionText": "What make of limo does Argyle drive?",
+            "potentialAnswers": [
+                {
+                    "answerText": "Lincoln",
+                    "answerId": 1
+                },
+                {
+                    "answerText": "Chrysler",
+                    "answerId": 2
+                },
+                {
+                    "answerText": "Cadillac",
+                    "answerId": 3
+                }
+            ],
+            "image": "blocks"
+        },
+        {
+            "questionId": 5,
+            "questionType": 0,
+            "questionText": "What is the name of the book promoted by the shrink on the TV interview?",
+            "potentialAnswers": [
+                {
+                    "answerText": "Hostage/Terrorist, Terrorist/Hostage: a Study in Duality",
+                    "answerId": 1
+                },
+                {
+                    "answerText": "Hostage/Killer, Killer/Hostage: a Study in Duality",
+                    "answerId": 2
+                },
+                {
+                    "answerText": "Hostage/Captor, Captor/Hostage: a Study in Duality",
+                    "answerId": 3
+                }
+            ],
+            "image": "blocks"
+        },
+        {
+            "questionId": 10,
+            "questionType": 0,
+            "questionText": "When the C4 goes off and Richard Thornburg and his TV crew capture the carnage, finish the sentence: 'Tell me you got that... eat your heart out Channel...'",
+            "potentialAnswers": [
+                {
+                    "answerText": "2",
+                    "answerId": 1
+                },
+                {
+                    "answerText": "3",
+                    "answerId": 2
+                },
+                {
+                    "answerText": "4",
+                    "answerId": 3
+                },
+                {
+                    "answerText": "5",
+                    "answerId": 4
+                }
+            ],
+            "image": "blocks"
+        },
+        {
+            "questionId": 2,
+            "questionType": 0,
+            "questionText": "What is the percentage Hans is quoted as claiming him and his gang will earn when sitting on a beach?",
+            "potentialAnswers": [
+                {
+                    "answerText": "20%",
+                    "answerId": 1
+                },
+                {
+                    "answerText": "21%",
+                    "answerId": 2
+                },
+                {
+                    "answerText": "22%",
+                    "answerId": 3
+                }
+            ],
+            "image": "blocks"
+        }
+    ]
+}
