@@ -92,7 +92,6 @@ const ScoreTable = styled.table`
   border-bottom-color: #506c83;
   font-family: monospace;
   td {
-    padding-right: 5rem;
     padding-left: 0.25rem;
   }
 `;
@@ -167,11 +166,22 @@ const Quiz = () => {
   };
 
   const handleOnSubmit = async () => {
+    // Must submit in order questions were given
+    const sortedQuestions = quizQuestions
+      ?.map((initialQuestion: Question) => initialQuestion.questionId)
+      .reduce((acc: AnsweredQuestion[], questionId: number) => {
+        const questionToPush = answeredQuestions.find(
+          (answeredQuestion) => answeredQuestion.question_id === questionId
+        ) as AnsweredQuestion;
+        acc.push(questionToPush);
+        return acc;
+      }, []);
+
     try {
       const results = await axios.post(
         "http://localhost:3000/dev/api/questionset/submit",
         {
-          questions: answeredQuestions,
+          questions: sortedQuestions,
           set_id: localStorage.getItem("set_id"),
           client_request_id: localStorage.getItem("client_request_id"),
         }
@@ -196,104 +206,344 @@ const Quiz = () => {
             </tr>
 
             <tr>
-              <td>ABASCAL</td>
-              <td>F</td>
-              <td>28</td>
+              <td>
+                ABASCAL
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                F
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                28<span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
             </tr>
             <tr>
-              <td>ALLEN</td>
-              <td>W</td>
-              <td>34</td>
+              <td>
+                ALLEN
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td style={{ transform: "rotate(3deg)" }}>
+                W
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                34<span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
             </tr>
             <tr>
-              <td>ATKEN</td>
-              <td>T</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td colSpan={3}>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>BLAZE</td>
-              <td>W</td>
-              <td>27</td>
-            </tr>
-            <tr>
-              <td>BRICK</td>
-              <td>J</td>
-              <td>27</td>
-            </tr>
-            <tr>
-              <td>BRUNER</td>
-              <td>W</td>
-              <td>34</td>
-            </tr>
-            <tr>
-              <td>BORIS</td>
-              <td>R</td>
-              <td>31</td>
-            </tr>
-            <tr>
-              <td colSpan={3}>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>CAMPBELL</td>
-              <td>S</td>
-              <td>14</td>
-            </tr>
-            <tr>
-              <td>CLAY</td>
-              <td>WM</td>
-              <td>29</td>
-            </tr>
-            <tr>
-              <td>CRAWFORD</td>
-              <td>L</td>
-              <td>30</td>
+              <td>
+                ATKEN
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                T
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                0<span style={{ color: "black" }}>&#8226;&#8226;&#8226;</span>
+              </td>
             </tr>
             <tr>
               <td colSpan={3}>&nbsp;</td>
             </tr>
             <tr>
-              <td>DEGOVIA</td>
-              <td>O</td>
-              <td>29</td>
+              <td>
+                BLAZE
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                <span
+                  style={{
+                    transform: "rotate(-12deg)",
+                    display: "inline-block",
+                  }}
+                >
+                  W
+                </span>
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                27<span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
             </tr>
             <tr>
-              <td>DESOUZA</td>
-              <td>C</td>
-              <td>31</td>
+              <td>
+                BRICK
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                J
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                27<span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
             </tr>
             <tr>
-              <td>DEBONT</td>
-              <td>J</td>
-              <td>31</td>
+              <td>
+                BRUNER
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                W
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                3
+                <span
+                  style={{
+                    transform: "rotate(-18deg)",
+                    display: "inline-block",
+                  }}
+                >
+                  4
+                </span>
+                <span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
             </tr>
             <tr>
-              <td>DISARRO</td>
-              <td>A</td>
-              <td>30</td>
-            </tr>
-            <tr>
-              <td>DURRULL</td>
-              <td>B</td>
-              <td>31</td>
+              <td>
+                BORIS
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                R
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                31<span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
             </tr>
             <tr>
               <td colSpan={3}>&nbsp;</td>
             </tr>
             <tr>
-              <td>ELLING</td>
-              <td>J</td>
-              <td>30</td>
+              <td>
+                CAMPBELL
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                S
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                14<span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                CLAY
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                WM
+                <span style={{ color: "black" }}>&#8226;&#8226;&#8226;</span>
+              </td>
+              <td>
+                2
+                <span
+                  style={{
+                    transform: "rotate(-18deg)",
+                    display: "inline-block",
+                  }}
+                >
+                  9
+                </span>
+                <span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                CRAWFORD
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                L
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                30<span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3}>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>
+                <span
+                  style={{
+                    transform: "rotate(13deg)",
+                    display: "inline-block",
+                  }}
+                >
+                  D
+                </span>
+                EGOVIA
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                O
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                29<span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                DESOUZA
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                C
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                31<span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                DEBONT
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                J
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                31<span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                DISARRO
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                A
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                30<span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                DURRULL
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                B
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                31<span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3}>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>
+                ELLING
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                <span
+                  style={{
+                    transform: "rotate(13deg)",
+                    display: "inline-block",
+                  }}
+                >
+                  J
+                </span>
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                30<span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
             </tr>
             <tr>
               <td colSpan={3}>&nbsp;</td>
             </tr>
             <tr style={{ color: "orange" }}>
-              <td>PLAYER</td>
-              <td>ONE</td>
-              <td>{results.score}</td>
+              <td>
+                PLAYER
+                <span style={{ color: "black" }}>
+                  &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+                </span>
+              </td>
+              <td>
+                ONE<span style={{ color: "black" }}>&#8226;&#8226;</span>
+              </td>
+              <td>
+                {results.score}
+                <span style={{ color: "black" }}>&#8226;</span>
+              </td>
             </tr>
           </ScoreTable>
         </>
