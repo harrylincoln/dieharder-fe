@@ -13,27 +13,27 @@ AWS.config = new AWS.Config({
   region: process.env.AWS_DEFAULT_REGION,
 });
 
-const createCloudFrontInvalidation = () =>
-  new Promise((resolve, reject) => {
-    const params = {
-      DistributionId: process.env.AWS_CLOUDFRONT_DIST_ID,
-      InvalidationBatch: {
-        CallerReference: Date.now().toString(),
-        Paths: {
-          Quantity: "1",
-          Items: ["/*"],
-        },
-      },
-    };
+// const createCloudFrontInvalidation = () =>
+//   new Promise((resolve, reject) => {
+//     const params = {
+//       DistributionId: process.env.AWS_CLOUDFRONT_DIST_ID,
+//       InvalidationBatch: {
+//         CallerReference: Date.now().toString(),
+//         Paths: {
+//           Quantity: "1",
+//           Items: ["/*"],
+//         },
+//       },
+//     };
 
-    cloudfront.createInvalidation(params, (err, data) => {
-      if (err) reject(err);
-      else {
-        console.log("createInvalidation success!");
-        resolve();
-      }
-    });
-  });
+//     cloudfront.createInvalidation(params, (err, data) => {
+//       if (err) reject(err);
+//       else {
+//         console.log("createInvalidation success!");
+//         resolve();
+//       }
+//     });
+//   });
 
 const uploadFilesToS3 = (files) => {
   return new Promise((resolve, reject) => {
@@ -44,7 +44,7 @@ const uploadFilesToS3 = (files) => {
 
         s3.upload(
           {
-            Bucket: "diehard-app",
+            Bucket: "diehardbutharder.com",
             Key: file.replace("./build/", ""),
             Body: fileContents,
             ContentType: fileMime,
@@ -65,5 +65,5 @@ const uploadFilesToS3 = (files) => {
 
 glob("./build/**/*", {}, async (err, files) => {
   await uploadFilesToS3(files);
-  await createCloudFrontInvalidation();
+  // await createCloudFrontInvalidation();
 });
