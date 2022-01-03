@@ -16,7 +16,7 @@ const StyledButton = styled.button<{ visited: boolean; namesStyle?: boolean }>`
   margin: 0 0.25rem 0.25rem 0.25rem;
   cursor: pointer;
   transition: background-color 50ms linear;
-  width: ${(props) => (props.namesStyle ? "100%" : "auto")};
+  width: ${(props) => (props.namesStyle ? "98%" : "auto")};
   @media (min-width: 768px) {
     display: inline-block;
     width: ${(props) => (props.namesStyle ? "47%" : "auto")};

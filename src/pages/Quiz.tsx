@@ -80,7 +80,10 @@ type Results = {
 const ScoreTable = styled.table`
   background-color: #0f0f12;
   text-align: left;
-  font-size: 2rem;
+  font-size: 1.2rem;
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
   padding: 1rem;
   border-spacing: 0px;
   border-collapse: separate;

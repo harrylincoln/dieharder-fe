@@ -48,7 +48,7 @@ const Home = () => (
         "radial-gradient(ellipse at center, #29382c 0%, #0c100d 100%)",
     }}
   >
-    <div className="noise-wrapper">
+    <div className="noise-wrapper" style={{ position: "absolute" }}>
       <LogoContainer>
         <Link to="/directory" style={{ width: "100%" }}>
           <Logo />
