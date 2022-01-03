@@ -28,11 +28,11 @@ const StyledFieldSets = styled.div`
     border-left-color: #506c83;
     border-bottom-color: #506c83;
     margin: 0 0.25rem 0.25rem 0.25rem;
-    cursor: pointer;
     transition: background-color 50ms linear;
     input {
       margin-right: 1rem;
       height: 1rem;
+      cursor: pointer;
     }
   }
 `;
@@ -109,7 +109,7 @@ const Quiz = () => {
   useEffect(() => {
     const getQuiz = async () => {
       const resp = await axios.post(
-        "http://localhost:3000/dev/api/questionset/create",
+        "https://4yvwcqk0mk.execute-api.eu-west-2.amazonaws.com/production/api/questionset/create",
         { uuid }
       );
       localStorage.setItem("client_request_id", resp.data.client_request_id);
@@ -118,6 +118,7 @@ const Quiz = () => {
       // setQuizQuestions(mockResp.questions);
     };
     getQuiz();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -179,14 +180,14 @@ const Quiz = () => {
 
     try {
       const results = await axios.post(
-        "http://localhost:3000/dev/api/questionset/submit",
+        "https://4yvwcqk0mk.execute-api.eu-west-2.amazonaws.com/production/api/questionset/submit",
         {
           questions: sortedQuestions,
           set_id: localStorage.getItem("set_id"),
           client_request_id: localStorage.getItem("client_request_id"),
         }
       );
-
+      window.scrollTo({ top: 0 });
       setResults(results.data);
     } catch (e) {
       console.log("ooops. No bullets. You think I'm fucking stoopid, Hans.", e);
@@ -561,20 +562,22 @@ const Quiz = () => {
                 </picture>
                 <h4>{question.questionText}</h4>
                 <StyledFieldSets>
-                  {question.potentialAnswers.map((answer: PotentialAnswer) => (
-                    <fieldset>
-                      <input
-                        type="radio"
-                        id={`${question.questionId}`}
-                        name={`${question.questionText}`}
-                        value={answer.answerId}
-                        onChange={onChangeAnswerSelect}
-                      />
-                      <label htmlFor={`${question.questionId}`}>
-                        {answer.answerText}
-                      </label>
-                    </fieldset>
-                  ))}
+                  {question.potentialAnswers.map(
+                    (answer: PotentialAnswer, idx: number) => (
+                      <fieldset>
+                        <input
+                          type="radio"
+                          id={`${question.questionId}`}
+                          name={`${question.questionText}`}
+                          value={answer.answerId}
+                          onChange={onChangeAnswerSelect}
+                        />
+                        <label htmlFor={`${question.questionId}`}>
+                          {answer.answerText}
+                        </label>
+                      </fieldset>
+                    )
+                  )}
                 </StyledFieldSets>
               </StyledQuestion>
             ))}
