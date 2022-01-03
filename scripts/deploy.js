@@ -38,6 +38,7 @@ AWS.config = new AWS.Config({
 const uploadFilesToS3 = (files) => {
   return new Promise((resolve, reject) => {
     files.forEach((file) => {
+      console.log("file?", file);
       if (!fs.lstatSync(file).isDirectory()) {
         const fileContents = fs.readFileSync(`./${file}`);
         const fileMime = mimeTypes.lookup(file);
