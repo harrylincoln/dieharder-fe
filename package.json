@@ -49,6 +49,9 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.19",
-    "@types/uuid": "^8.3.3"
+    "@types/uuid": "^8.3.3",
+    "aws-sdk": "^2.1048.0",
+    "glob": "^7.2.0",
+    "mime-types": "^2.1.34"
   }
 }

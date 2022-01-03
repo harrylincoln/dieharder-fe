@@ -4,7 +4,6 @@ const cloudfront = new AWS.CloudFront();
 const fs = require("fs");
 const glob = require("glob");
 const mimeTypes = require("mime-types");
-require("dotenv").config();
 
 AWS.config = new AWS.Config({
   credentials: new AWS.Credentials({
@@ -45,7 +44,7 @@ const uploadFilesToS3 = (files) => {
 
         s3.upload(
           {
-            Bucket: "notate-app",
+            Bucket: "diehard-app",
             Key: file.replace("./build/", ""),
             Body: fileContents,
             ContentType: fileMime,
