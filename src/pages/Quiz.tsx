@@ -30,8 +30,9 @@ const StyledFieldSets = styled.div`
     margin: 0 0.25rem 0.25rem 0.25rem;
     transition: background-color 50ms linear;
     input {
-      margin-right: 1rem;
+      margin-right: 0.5rem;
       height: 1rem;
+      width: 1rem;
       cursor: pointer;
     }
   }
