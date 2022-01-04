@@ -29,12 +29,14 @@ const TouchScreenButton = ({
   namesStyle,
   isHolly,
   onClick,
+  disabled,
 }: {
   text: string;
   href?: string;
   namesStyle?: boolean;
   isHolly?: boolean;
   onClick?: () => void;
+  disabled?: boolean;
 }) => {
   const navigate = useNavigate();
   const [visited, setVisited] = useState(false);
@@ -55,7 +57,12 @@ const TouchScreenButton = ({
   };
 
   return (
-    <StyledButton visited={visited} onClick={onPress} namesStyle={namesStyle}>
+    <StyledButton
+      visited={visited}
+      onClick={onPress}
+      namesStyle={namesStyle}
+      disabled={disabled ?? false}
+    >
       {text}
     </StyledButton>
   );

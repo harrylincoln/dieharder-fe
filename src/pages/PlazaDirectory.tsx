@@ -33,7 +33,11 @@ const PlazaDirectoryLetter = () => (
       "Y",
       "Z",
     ].map((letter: string) => (
-      <TouchScreenButton text={letter} href={`/directory/${letter}`} />
+      <TouchScreenButton
+        disabled={letter !== "G" && letter !== "M"}
+        text={letter}
+        href={`/directory/${letter}`}
+      />
     ))}
   </>
 );
