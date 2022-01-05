@@ -29,11 +29,13 @@ const StyledFieldSets = styled.div`
     border-bottom-color: #506c83;
     margin: 0 0.25rem 0.25rem 0.25rem;
     transition: background-color 50ms linear;
+    label {
+      cursor: pointer;
+    }
     input {
       margin-right: 0.5rem;
       height: 1rem;
       width: 1rem;
-      cursor: pointer;
     }
   }
 `;
@@ -140,7 +142,7 @@ const Quiz = () => {
   const onChangeAnswerSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
 
-    const changedQuestionId = Number(id);
+    const changedQuestionId = Number(id.split("-")[0]);
     const changedAnswerId = Number(value);
 
     const answerState = {
@@ -569,14 +571,14 @@ const Quiz = () => {
                   {question.potentialAnswers.map(
                     (answer: PotentialAnswer, idx: number) => (
                       <fieldset>
-                        <input
-                          type="radio"
-                          id={`${question.questionId}`}
-                          name={`${question.questionText}`}
-                          value={answer.answerId}
-                          onChange={onChangeAnswerSelect}
-                        />
-                        <label htmlFor={`${question.questionId}`}>
+                        <label htmlFor={`${question.questionId}-${idx}`}>
+                          <input
+                            type="radio"
+                            id={`${question.questionId}-${idx}`}
+                            name={`${question.questionText}`}
+                            value={answer.answerId}
+                            onChange={onChangeAnswerSelect}
+                          />
                           {answer.answerText}
                         </label>
                       </fieldset>
