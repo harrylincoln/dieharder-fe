@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -8,11 +8,12 @@ import Quiz from "./pages/Quiz";
 import PlazaDirectory from "./pages/PlazaDirectory";
 import PlazaDirectoryLetter from "./pages/PlazaDirectoryLetter";
 
-ReactGA.initialize("G-WTQEXY94XL");
-
 const App = () => {
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.send({
+      hitType: "pageview",
+      page: window.location.pathname + window.location.search,
+    });
   }, []);
 
   return (

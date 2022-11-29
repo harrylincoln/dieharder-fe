@@ -1,9 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import ReactGA from "react-ga4";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+
+ReactGA.initialize("G-WTQEXY94XL");
 
 ReactDOM.render(
   <React.StrictMode>
