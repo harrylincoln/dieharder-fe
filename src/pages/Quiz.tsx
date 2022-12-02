@@ -552,6 +552,15 @@ const Quiz = () => {
                 <span style={{ color: "black" }}>&#8226;</span>
               </td>
             </tr>
+            <tr>
+              <td colSpan={3}>&nbsp;</td>
+            </tr>
+            <tr style={{ color: "red" }}>
+              <td>🎄 NEW QUESTIONS ADDED</td>
+            </tr>
+            <tr style={{ color: "green" }}>
+              <td>EVERY FRI IN DEC 🎄</td>
+            </tr>
           </ScoreTable>
         </>
       )}
