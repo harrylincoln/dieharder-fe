@@ -115,7 +115,8 @@ const Quiz = () => {
   useEffect(() => {
     const getQuiz = async () => {
       const resp = await axios.post(
-        "https://nxpe2r4e50.execute-api.eu-west-2.amazonaws.com/production/api/questionset/create",
+        "https://f0y9jxf5j5.execute-api.eu-west-2.amazonaws.com/production/api/questionset/create",
+        // "http://localhost:3000/dev/api/questionset/create",
         { uuid }
       );
       localStorage.setItem("client_request_id", resp.data.client_request_id);
@@ -186,7 +187,8 @@ const Quiz = () => {
 
     try {
       const results = await axios.post(
-        "https://nxpe2r4e50.execute-api.eu-west-2.amazonaws.com/production/api/questionset/submit",
+        "https://f0y9jxf5j5.execute-api.eu-west-2.amazonaws.com/production/api/questionset/submit",
+        // "http://localhost:3000/dev/api/questionset/submit",
         {
           questions: sortedQuestions,
           set_id: localStorage.getItem("set_id"),
